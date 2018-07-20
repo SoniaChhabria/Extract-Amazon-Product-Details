@@ -123,16 +123,6 @@ def ReadAsin():
     data = {}  
     data['asinsi'] = []  
         
-#             asinlist = ', '.join(row)
-#             print(asinlist) 
-            
-#     AsinList = [
-#         'B077GW33GD',
-#         'B077J3T6JH',
-#         'B077J3T6JM',
-#         'B077MHCYWT',
-#         ]
-#       for i in AsinList:
      
     with open("/content/my_drive/siproductsdetails/sub.csv", "w") as fp:
         fp.write("Name,Sale Price,Category,Original_Price,Availability,Url,Image_link\n")
