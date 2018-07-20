@@ -60,6 +60,7 @@ def AmzonParser(url):
         except Exception as e:
             print(e)
 
+#Authorization commands so as to make directory on google drive
 !apt-get install -y -qq software-properties-common python-software-properties module-init-tools
 !add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null
 !apt-get update -qq 2>&1 > /dev/null
