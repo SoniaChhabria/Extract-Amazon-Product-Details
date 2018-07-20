@@ -15,6 +15,7 @@ import requests
 
 from time import sleep
 
+#Function for extracting product details 
 def AmzonParser(url):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
     page = requests.get(url,headers=headers)
@@ -87,10 +88,12 @@ vcode = getpass.getpass()
 !mkdir -p my_drive
 !google-drive-ocamlfuse my_drive
 
+#After authorization command for making directory 'siproductsdetails' on google drive
 !mkdir -p my_drive/siproductsdetails
 
 !google-drive-ocamlfuse my_drive -o nonempty
 
+#After this make .csv file and name it 'asin' in this case and add ASIN of all amazon products for which you want to get details in directory 'siproductsdetails' #function for getting images of amazon products
 from bs4 import BeautifulSoup as bsoup
 import requests
 from urllib import request
@@ -109,15 +112,11 @@ def _find_image_url(html_block):
     imageurl = dict(imgtag.attrs)["src"]
     return imageurl
     
-# def tryloadingimages(url):  
-#     req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"}) 
-#     page = urllib2.urlopen(req).read()
-#     soup = bsoup(page,'html.parser')
-#     for h in soup.findAll('h2'):
-#         a = h.find('a')
-#     if a is not None and 'href' in a.attrs:
-#        l = a.get('href')
-#     return l
+#Main function 
+#sub.csv is the output file 
+#asin.csv is input file. 
+#This function read asins from asin.csv one row at a time and gets the details for that asin and write this to sub.csv 
+#ASIN uniquely represents each amazon product. So, basically each amazon product primary key is ASIN.
 
 def ReadAsin():
     # AsinList = csv.DictReader(open(os.path.join(os.path.dirname(__file__),"Asinfeed.csv")))
