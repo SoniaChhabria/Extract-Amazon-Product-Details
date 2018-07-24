@@ -16,6 +16,8 @@ import requests
 from time import sleep
 
 #Function for extracting product details 
+# This function takes URL of the product page on amazon as input and then extracts product name, sale price, category, availability, and image url as output
+
 def AmzonParser(url):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
     page = requests.get(url,headers=headers)
@@ -41,6 +43,7 @@ def AmzonParser(url):
             ORIGINAL_PRICE = ''.join(RAW_ORIGINAL_PRICE).strip() if RAW_ORIGINAL_PRICE else None
             AVAILABILITY = ''.join(RAw_AVAILABILITY).strip() if RAw_AVAILABILITY else None
             Page_Link = ''.join(load_image(url)).strip()
+            #load_image(url) is a function which gets the image URL of the product by taking product page URL as argument.
             
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
@@ -94,6 +97,8 @@ vcode = getpass.getpass()
 !google-drive-ocamlfuse my_drive -o nonempty
 
 #After this make .csv file and name it 'asin' in this case and add ASIN of all amazon products for which you want to get details in directory 'siproductsdetails' #function for getting images of amazon products
+
+#load_image(url) is a function which takes product page URL as input and extracts the image URL.
 from bs4 import BeautifulSoup as bsoup
 import requests
 from urllib import request
