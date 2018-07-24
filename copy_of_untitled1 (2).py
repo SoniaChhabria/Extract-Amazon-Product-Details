@@ -7,6 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1_6F23Mgi2yPq3qJSj8ytDZOasTDUPDmo
 """
 
+#For executing these commands use online compiler and execute python command on Google Colab.
+# For this go to this link--> https://colab.research.google.com/notebooks/welcome.ipynb#recent=true 
+#Go to file and create new python3 notebook
+#After that go to runtime and then select--> change runtime type--> and in Hardware accelerator delect GPU.
+#After there is a connect button on right side of the editor press connect and now you can start executing commands!
+
 !pip install requests lxml
 
 from lxml import html  
